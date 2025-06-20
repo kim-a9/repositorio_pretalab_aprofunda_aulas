@@ -28,17 +28,17 @@ blogRouter.post('/texts', (req, res) => {
 
     res.status(201).json({ message: `Texto ${title} foi criado com sucesso` });
 
-});//rota ok
+});
 
 blogRouter.get('/texts', (req, res) => {
     res.json(textList);
-}); //rota ok
+}); 
 
 blogRouter.get('/text/:id', (req, res) => {
     const id = req.query.id; 
     const textFound = textList.find((text) => text.id === id);
     res.json(textFound);
-}); //rota ok
+}); 
 
 blogRouter.patch('/text/:id', (req, res) => {
     const { id } = req.params;
@@ -61,7 +61,7 @@ blogRouter.patch('/text/:id', (req, res) => {
 
     res.json({  message: `Texto ${title} foi criado com sucesso`})
 
-}); //rota ok
+}); 
 
 blogRouter.delete('/text/:id', (req, res) => {
     const { id } = req.params;
