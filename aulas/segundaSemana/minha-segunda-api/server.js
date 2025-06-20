@@ -24,22 +24,21 @@ blogRouter.post('/texts', (req, res) => {
         status: status,
         author: author,
     }
-
     textList.push(newText);
 
     res.status(201).json({ message: `Texto ${title} foi criado com sucesso` });
 
-});
+});//rota ok
 
 blogRouter.get('/texts', (req, res) => {
     res.json(textList);
-});
+}); //rota ok
 
 blogRouter.get('/text/:id', (req, res) => {
-    const id = req.query.id;
-    const textFound = textList.find(text => text.id === id);
+    const id = req.query.id; 
+    const textFound = textList.find((text) => text.id === id);
     res.json(textFound);
-});
+}); //rota ok
 
 blogRouter.patch('/text/:id', (req, res) => {
     const { id } = req.params;
@@ -57,16 +56,18 @@ blogRouter.patch('/text/:id', (req, res) => {
         textFound.status = status
     }
     if (author != null) {
-        textFound.auhtor = author
+        textFound.author = author
     }
 
     res.json({  message: `Texto ${title} foi criado com sucesso`})
-});
+
+}); //rota ok
 
 blogRouter.delete('/text/:id', (req, res) => {
     const { id } = req.params;
     
     const listUpdated = textList.filter((text) => text.id === id);
+
 
     res.json(listUpdated);
 });
