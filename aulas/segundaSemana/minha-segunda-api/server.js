@@ -63,11 +63,10 @@ blogRouter.patch('/text/:id', (req, res) => {
 
 }); 
 
-blogRouter.delete('/text/:id', (req, res) => {
+blogRouter.delete('/texts/:id', (req, res) => {
     const { id } = req.params;
     
     const listUpdated = textList.filter((text) => text.id === id);
-
 
     res.json(listUpdated);
 });
